@@ -1,6 +1,7 @@
 package io.quarkiverse.flow.persistence.common;
 
 import java.util.List;
+import java.util.Optional;
 
 import io.quarkus.runtime.annotations.ConfigPhase;
 import io.quarkus.runtime.annotations.ConfigRoot;
@@ -25,6 +26,5 @@ public interface FlowPersistenceConfig {
      *
      * Example: quarkus.flow.persistence.exclude-workflows=com.example:workflow:0.1.0,org.acme:workflow:1.2.0
      */
-    @WithDefault("")
-    List<String> excludeWorkflows();
+    Optional<List<String>> excludeWorkflows();
 }
