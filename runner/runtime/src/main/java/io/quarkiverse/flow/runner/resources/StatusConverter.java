@@ -18,13 +18,13 @@ class StatusConverter implements ParamConverter<WorkflowStatus> {
             WorkflowStatus status = WorkflowStatus.valueOf(value.toUpperCase());
             Set<WorkflowStatus> validStatuses = validStatuses();
             if (!validStatuses.isEmpty() && !validStatuses.contains(status)) {
-                throw new BadRequestException("Invalidd status value: '" + value
-                        + "'. Valid values are : " + validStatuses);
+                throw new BadRequestException("Invalid status value: '" + value
+                        + "'. Accepted values are : " + validStatuses);
             }
             return status;
         } catch (IllegalArgumentException e) {
-            throw new BadRequestException("Invalid status value: '" + value
-                    + "'. Valid values are : " + Arrays.toString(WorkflowStatus.values()));
+            throw new BadRequestException("Unknown status value: '" + value
+                    + "'. Known values are : " + Arrays.toString(WorkflowStatus.values()));
         }
     }
 
